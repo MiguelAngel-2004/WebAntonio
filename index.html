@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- =========================================================
+       SEO Y REDES SOCIALES  (EDITABLE: textos de la pestaña y del enlace compartido)
+       ========================================================= -->
+  <title>Zeta Fitness | Entrenador personal en Sevilla · Presencial y online</title>
+  <meta name="description" content="Entrenamiento personal presencial en Sevilla y online. Plan 100% personalizado, acompañamiento profesional y tarifas claras. Solicita información.">
+  <meta name="theme-color" content="#050706">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Zeta Fitness | Entrenamiento personal">
+  <meta property="og:description" content="Entrenador personal en Sevilla, presencial y online. Plan personalizado y contacto directo.">
+  <!-- EDITAR al publicar: Open Graph necesita la dirección completa, p. ej. https://tu-web.netlify.app/img/hero.jpg -->
+  <meta property="og:image" content="img/hero.jpg">
+
+  <!-- Marca que JavaScript está activo (las animaciones de entrada solo se aplican si es así) -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Tipografías (Google Fonts: único recurso externo permitido) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700&family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       VARIABLES DE DISEÑO (colores, medidas)
+       ========================================================= */
+    :root {
+      --bg: #050706;
+      --bg-alt: #0b100e;
+      --card: #101615;
+      --card-2: #0d1211;
+      --line: rgba(255, 255, 255, 0.09);
+      --line-strong: rgba(255, 255, 255, 0.16);
+      --accent: #22e33a;
+      --accent-hover: #52ee66;
+      --accent-ink: #04130a;
+      --accent-glow: rgba(34, 227, 58, 0.28);
+      --text: #ffffff;
+      --muted: #a8b0ad;
+      --header-h: 64px;
+      --container: 1120px;
+      --gutter: 24px;
+      --radius: 16px;
+      --section-y: clamp(56px, 8vw, 96px);
+      --font-head: "Montserrat", system-ui, sans-serif;
+      --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --font-hand: "Caveat", "Segoe Script", cursive;
+      --ease: 0.25s ease;
+      --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    /* =========================================================
+       BASE
+       ========================================================= */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: var(--font-body); font-size: 16px; line-height: 1.6;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    svg { flex-shrink: 0; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, p, ul, ol { margin: 0; }
+    ul, ol { padding: 0; list-style: none; }
+    button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+    .container { width: 100%; max-width: calc(var(--container) + var(--gutter) * 2); margin: 0 auto; padding: 0 var(--gutter); }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    section[id] { scroll-margin-top: calc(var(--header-h) + 8px); }
+    .accent { color: var(--accent); }
+    .section { padding: var(--section-y) 0; position: relative; }
+
+    .skip-link {
+      position: absolute; left: 16px; top: -60px; z-index: 300;
+      background: var(--accent); color: var(--accent-ink);
+      padding: 10px 16px; border-radius: 8px; font-weight: 600;
+    }
+    .skip-link:focus { top: 12px; }
+
+    .eyebrow {
+      font-family: var(--font-head); font-weight: 700; font-size: 12.5px;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent);
+    }
+    .section-title {
+      font-family: var(--font-head); font-weight: 800;
+      font-size: clamp(1.7rem, 3.2vw, 2.5rem); line-height: 1.15; letter-spacing: -0.015em;
+    }
+    .section-sub { margin-top: 12px; color: var(--muted); font-size: 16px; max-width: 560px; }
+    .section-head { text-align: center; margin-bottom: clamp(32px, 4vw, 48px); }
+    .section-head .eyebrow { margin-bottom: 10px; }
+    .section-head .section-sub { margin-left: auto; margin-right: auto; }
+
+    /* Huecos de foto: si la imagen no existe se ve este degradado con resplandor verde */
+    .media {
+      position: relative; overflow: hidden;
+      background:
+        radial-gradient(circle at 62% 38%, rgba(34, 227, 58, 0.16), transparent 55%),
+        linear-gradient(140deg, #0f1614 0%, #070a09 70%);
+    }
+    .media img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; opacity: 0; transition: opacity 0.6s ease;
+    }
+    .media img.is-loaded { opacity: 1; }
+
+    .hand { font-family: var(--font-hand); font-weight: 600; color: var(--text); line-height: 1.05; }
+    .swoosh { display: block; color: var(--accent); }
+
+    /* =========================================================
+       ANIMACIONES DE ENTRADA AL HACER SCROLL
+       (solo si hay JS; se desactivan con prefers-reduced-motion)
+       ========================================================= */
+    .js .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out); transition-delay: var(--d, 0s); }
+    .js .reveal.is-in { opacity: 1; transform: none; }
+    .js .reveal-left { opacity: 0; transform: translateX(-32px); transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out); transition-delay: var(--d, 0s); }
+    .js .reveal-left.is-in { opacity: 1; transform: none; }
+
+    /* Foco de luz que sigue al cursor sobre las tarjetas */
+    .spot { position: relative; isolation: isolate; overflow: hidden; }
+    .spot::before {
+      content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0;
+      background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 0%), rgba(34, 227, 58, 0.16), transparent 60%);
+      transition: opacity 0.3s ease;
+    }
+    .spot:hover::before { opacity: 1; }
+    .plan-card.spot { overflow: visible; }
+    .spot::before { border-radius: inherit; }
+
+    /* =========================================================
+       BOTONES
+       ========================================================= */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 44px; padding: 10px 22px; border-radius: 999px;
+      font-family: var(--font-body); font-weight: 600; font-size: 14.5px; line-height: 1.2;
+      transition: background-color var(--ease), color var(--ease), box-shadow var(--ease), border-color var(--ease), transform var(--ease);
+      cursor: pointer; white-space: nowrap;
+    }
+    .btn svg { width: 18px; height: 18px; transition: transform var(--ease); }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:hover .arrow { transform: translateX(4px); }
+    .btn-primary { background: var(--accent); color: var(--accent-ink); box-shadow: 0 0 0 1px rgba(34, 227, 58, 0.4), 0 6px 26px var(--accent-glow); }
+    .btn-primary:hover, .btn-primary:focus-visible { background: var(--accent-hover); box-shadow: 0 0 0 1px var(--accent-hover), 0 10px 38px rgba(34, 227, 58, 0.45); }
+    .btn-primary:focus-visible { outline-color: #fff; }
+    .btn-lg { min-height: 54px; padding: 14px 30px; font-size: 15.5px; }
+    .btn-outline { border: 1.5px solid var(--accent); color: var(--accent); background: transparent; }
+    .btn-outline:hover, .btn-outline:focus-visible { background: var(--accent); color: var(--accent-ink); }
+    .btn-outline:focus-visible { outline-color: #fff; }
+    .btn-ghost { border: 1.5px solid var(--line-strong); color: #fff; background: rgba(255, 255, 255, 0.04); }
+    .btn-ghost:hover, .btn-ghost:focus-visible { border-color: var(--accent); color: var(--accent); }
+
+    /* =========================================================
+       1. CABECERA
+       ========================================================= */
+    .site-header {
+      position: sticky; top: 0; z-index: 100; height: var(--header-h);
+      background: rgba(5, 7, 6, 0.8);
+      -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line); transition: background-color var(--ease);
+    }
+    .site-header.is-scrolled { background: rgba(5, 7, 6, 0.95); }
+    .progress { position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); box-shadow: 0 0 10px var(--accent-glow); }
+    .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+
+    .logo { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; }
+    .logo-mark { width: 46px; height: 36px; transition: transform 0.4s var(--ease-out); }
+    .logo:hover .logo-mark { transform: scale(1.08) skewX(-4deg); }
+    .logo-text { display: flex; flex-direction: column; line-height: 1; }
+    .logo-name { font-family: var(--font-head); font-weight: 900; font-style: italic; font-size: 18px; letter-spacing: 0.01em; color: #eef2f0; }
+    .logo-sub { font-family: var(--font-head); font-weight: 700; font-size: 7.4px; letter-spacing: 0.26em; margin-top: 5px; color: var(--accent); }
+
+    .nav { margin-left: auto; }
+    .nav ul { display: flex; align-items: center; gap: 2px; }
+    .nav a { position: relative; display: inline-flex; align-items: center; min-height: 44px; padding: 0 13px; font-size: 14px; font-weight: 500; color: #e9eeec; transition: color var(--ease); }
+    .nav a::after { content: ""; position: absolute; left: 13px; right: 13px; bottom: 6px; height: 2px; background: var(--accent); border-radius: 2px; transform: scaleX(0); transition: transform var(--ease); }
+    .nav a:hover, .nav a.is-active { color: var(--accent); }
+    .nav a:hover::after, .nav a.is-active::after { transform: scaleX(1); }
+
+    .header-actions { display: flex; align-items: center; gap: 8px; }
+    .menu-toggle { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; border-radius: 10px; border: 1px solid var(--line-strong); }
+    .menu-toggle svg { width: 22px; height: 22px; }
+    .menu-toggle .icon-close { display: none; }
+    .menu-toggle[aria-expanded="true"] .icon-open { display: none; }
+    .menu-toggle[aria-expanded="true"] .icon-close { display: block; }
+
+    /* =========================================================
+       2. HERO
+       ========================================================= */
+    .hero { position: relative; min-height: clamp(560px, 84vh, 720px); display: flex; align-items: center; overflow: hidden; background: var(--bg); }
+    .hero-media { position: absolute; top: 0; right: 0; bottom: 0; width: 62%; }
+    .hero-media img { object-position: 50% 20%; transform: translate3d(0, var(--py, 0px), 0); scale: 1.1; }
+    .hero-media img.is-loaded { animation: kenburns 2.4s var(--ease-out) forwards; }
+    @keyframes kenburns { from { scale: 1.14; } to { scale: 1.04; } }
+    .hero-media::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background:
+        linear-gradient(90deg, var(--bg) 0%, rgba(5, 7, 6, 0.85) 14%, rgba(5, 7, 6, 0.25) 42%, rgba(5, 7, 6, 0) 70%),
+        linear-gradient(0deg, var(--bg) 0%, rgba(5, 7, 6, 0) 24%);
+    }
+    .hero::before { content: ""; position: absolute; left: -10%; top: 10%; width: 520px; height: 520px; background: radial-gradient(circle, rgba(34, 227, 58, 0.1), transparent 65%); pointer-events: none; }
+    .hero-inner { position: relative; z-index: 1; padding-top: 56px; padding-bottom: 72px; }
+    .hero-content { max-width: 580px; }
+    .hero .eyebrow { font-size: 13.5px; margin-bottom: 14px; display: inline-flex; align-items: center; gap: 10px; }
+    .hero .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--accent); border-radius: 2px; }
+    .hero h1 { font-family: var(--font-head); font-weight: 900; text-transform: uppercase; font-size: clamp(2.5rem, 5.2vw, 4.1rem); line-height: 1.02; letter-spacing: -0.01em; }
+    .hero h1 .h1-accent {
+      display: block; font-style: italic; padding-right: 6px;
+      background: linear-gradient(100deg, #22e33a 0%, #9bf5a6 45%, #22e33a 90%); background-size: 220% 100%;
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      animation: shimmer 6s ease-in-out infinite;
+    }
+    @keyframes shimmer { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+    .hero-lead { margin-top: 20px; max-width: 490px; font-size: 17px; line-height: 1.55; color: #e7ecea; }
+
+    .benefits { display: flex; flex-wrap: wrap; margin-top: 26px; row-gap: 14px; }
+    .benefits li { display: flex; align-items: center; gap: 10px; padding: 0 20px; font-size: 12.5px; line-height: 1.35; color: #e7ecea; border-left: 1px solid var(--line-strong); }
+    .benefits li:first-child { padding-left: 0; border-left: 0; }
+    .benefits svg { width: 26px; height: 26px; color: var(--accent); }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .hero-modes { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px; font-size: 12.5px; font-weight: 500; color: #dfe5e3; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--line); }
+    .pill svg { width: 15px; height: 15px; color: var(--accent); }
+
+    /* Entrada escalonada del hero */
+    .hero-content > * { animation: rise 0.9s var(--ease-out) both; animation-delay: calc(var(--i, 0) * 0.1s + 0.1s); }
+    @keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+
+    .hero-hand { position: absolute; right: var(--gutter); bottom: 54px; z-index: 1; font-size: 30px; text-align: center; transform: rotate(-9deg); animation: float 5s ease-in-out infinite; }
+    @keyframes float { 0%, 100% { transform: rotate(-9deg) translateY(0); } 50% { transform: rotate(-9deg) translateY(-8px); } }
+    .hero-hand .swoosh { width: 120px; margin: 2px auto 0; }
+
+    .scroll-cue { position: absolute; left: 50%; bottom: 18px; z-index: 1; width: 22px; height: 36px; border: 1.5px solid var(--line-strong); border-radius: 12px; transform: translateX(-50%); }
+    .scroll-cue::after { content: ""; position: absolute; left: 50%; top: 7px; width: 3px; height: 7px; margin-left: -1.5px; border-radius: 2px; background: var(--accent); animation: cue 1.8s ease-in-out infinite; }
+    @keyframes cue { 0% { opacity: 0; transform: translateY(0); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(12px); } }
+
+    /* =========================================================
+       FRANJA EN MOVIMIENTO
+       ========================================================= */
+    .marquee { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg-alt); overflow: hidden; padding: 16px 0; }
+    .marquee-track { display: flex; width: max-content; animation: scroll-x 38s linear infinite; }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    .marquee-group { display: flex; align-items: center; flex-shrink: 0; }
+    .marquee-group span { font-family: var(--font-head); font-weight: 900; font-size: clamp(1.1rem, 2vw, 1.5rem); letter-spacing: 0.06em; text-transform: uppercase; padding: 0 22px; color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4); }
+    .marquee-group span:nth-child(even) { -webkit-text-stroke: 0; color: var(--accent); }
+    .marquee-group i { width: 8px; height: 8px; border-radius: 2px; background: var(--accent); transform: rotate(45deg); opacity: 0.7; }
+    @keyframes scroll-x { to { transform: translateX(-50%); } }
+
+    /* =========================================================
+       OBJETIVOS
+       ========================================================= */
+    .goals-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .goal-card {
+      display: flex; flex-direction: column; padding: 26px 22px 22px; min-height: 250px;
+      background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+      transition: transform 0.4s var(--ease-out), border-color var(--ease);
+    }
+    .goal-card:hover, .goal-card:focus-visible { transform: translateY(-8px); border-color: rgba(34, 227, 58, 0.45); }
+    .goal-icon { width: 54px; height: 54px; display: grid; place-items: center; border-radius: 14px; background: rgba(34, 227, 58, 0.1); border: 1px solid rgba(34, 227, 58, 0.25); color: var(--accent); transition: background-color var(--ease), color var(--ease), transform 0.4s var(--ease-out); }
+    .goal-icon svg { width: 28px; height: 28px; }
+    .goal-card:hover .goal-icon { background: var(--accent); color: var(--accent-ink); transform: rotate(-6deg) scale(1.08); }
+    .goal-card h3 { margin-top: 20px; font-family: var(--font-head); font-weight: 700; font-size: 18px; line-height: 1.25; }
+    .goal-card p { margin-top: 8px; font-size: 14px; color: var(--muted); line-height: 1.55; }
+    .goal-cta { margin-top: auto; padding-top: 18px; display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: var(--accent); }
+    .goal-cta svg { width: 16px; height: 16px; transition: transform var(--ease); }
+    .goal-card:hover .goal-cta svg { transform: translateX(5px); }
+
+    /* =========================================================
+       SERVICIOS (pestañas)
+       ========================================================= */
+    .services { background: var(--bg-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .seg { display: flex; width: max-content; max-width: 100%; margin: 0 auto 30px; padding: 5px; gap: 4px; border-radius: 999px; background: var(--card); border: 1px solid var(--line); }
+    .seg button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 22px; border-radius: 999px; font-weight: 600; font-size: 14.5px; color: var(--muted); transition: background-color var(--ease), color var(--ease); }
+    .seg button svg { width: 18px; height: 18px; }
+    .seg button:hover { color: #fff; }
+    .seg button[aria-selected="true"] { background: var(--accent); color: var(--accent-ink); box-shadow: 0 4px 20px var(--accent-glow); }
+
+    .service-panel { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: center; animation: panel-in 0.6s var(--ease-out) both; }
+    .service-panel[hidden] { display: none; }
+    @keyframes panel-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+    .service-media { aspect-ratio: 1 / 1; max-height: 460px; width: 100%; border-radius: 22px; border: 1px solid var(--line); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 60px rgba(34, 227, 58, 0.08); }
+    .service-media img { transition: opacity 0.6s ease, transform 1.2s var(--ease-out); }
+    .service-panel:hover .service-media img { transform: scale(1.05); }
+    .service-media::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(0deg, rgba(5, 7, 6, 0.55) 0%, rgba(5, 7, 6, 0) 45%); }
+    .service-tag { position: absolute; z-index: 1; left: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; background: rgba(5, 7, 6, 0.7); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1px solid var(--line-strong); }
+    .service-tag svg { width: 16px; height: 16px; color: var(--accent); }
+    .service-head { display: flex; align-items: center; gap: 14px; }
+    .service-head svg { width: 44px; height: 44px; color: var(--accent); }
+    .service-head h3 { font-family: var(--font-head); font-weight: 800; font-size: clamp(1.4rem, 2.4vw, 1.9rem); line-height: 1.2; }
+    .service-text { margin-top: 16px; font-size: 16.5px; line-height: 1.6; color: #dfe5e3; }
+    .checklist { margin: 22px 0 28px; display: grid; gap: 12px; }
+    .checklist li { display: flex; align-items: center; gap: 12px; font-size: 15px; color: #e7ecea; }
+    .checklist svg { width: 22px; height: 22px; padding: 4px; border-radius: 50%; background: rgba(34, 227, 58, 0.14); color: var(--accent); }
+
+    /* =========================================================
+       CÓMO FUNCIONA
+       ========================================================= */
+    .steps-grid { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .steps-grid::before, .steps-grid::after { content: ""; position: absolute; top: 31px; left: 12.5%; right: 12.5%; height: 2px; border-radius: 2px; }
+    .steps-grid::before { background: var(--line-strong); }
+    .steps-grid::after { background: linear-gradient(90deg, var(--accent), rgba(34, 227, 58, 0.4)); box-shadow: 0 0 12px var(--accent-glow); transform-origin: 0 50%; transform: scaleX(0); transition: transform 1.6s var(--ease-out) 0.3s; }
+    .steps-grid.is-in::after { transform: scaleX(1); }
+    .step { position: relative; text-align: center; padding: 0 6px; }
+    .step-num { position: relative; z-index: 1; width: 64px; height: 64px; margin: 0 auto 20px; display: grid; place-items: center; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); color: var(--accent); font-family: var(--font-head); font-weight: 800; font-size: 20px; box-shadow: 0 0 0 6px var(--bg), 0 0 24px rgba(34, 227, 58, 0.2); transition: background-color var(--ease), color var(--ease), transform 0.4s var(--ease-out); }
+    .step:hover .step-num { background: var(--accent); color: var(--accent-ink); transform: scale(1.1); }
+    .step h3 { font-family: var(--font-head); font-weight: 700; font-size: 17px; line-height: 1.3; }
+    .step p { margin-top: 8px; font-size: 14px; color: var(--muted); line-height: 1.55; }
+    .steps-cta { margin-top: clamp(32px, 4vw, 48px); text-align: center; }
+
+    /* =========================================================
+       TARIFAS
+       ========================================================= */
+    .plans-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: stretch; }
+    .plan-card {
+      position: relative; display: flex; flex-direction: column; padding: 28px 22px 22px;
+      background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+      transition: transform 0.4s var(--ease-out), border-color var(--ease), box-shadow 0.4s ease;
+    }
+    .plan-card:hover { transform: translateY(-8px); border-color: rgba(34, 227, 58, 0.4); }
+    .plan-card.is-popular {
+      border: 1px solid transparent;
+      background: linear-gradient(var(--card), var(--card)) padding-box, linear-gradient(145deg, var(--accent), rgba(34, 227, 58, 0.05) 60%) border-box;
+      box-shadow: 0 0 50px rgba(34, 227, 58, 0.14);
+    }
+    .plan-badge { position: absolute; top: -12px; right: 14px; background: var(--accent); color: var(--accent-ink); font-size: 11.5px; font-weight: 700; line-height: 1; padding: 7px 12px; border-radius: 999px; box-shadow: 0 4px 16px var(--accent-glow); }
+    .plan-name { font-family: var(--font-head); font-weight: 700; font-size: 17px; line-height: 1.3; }
+    .plan-desc { margin-top: 6px; font-size: 13px; color: var(--muted); }
+    .plan-price { margin: auto 0 20px; padding-top: 22px; font-family: var(--font-head); font-weight: 800; font-size: clamp(2.2rem, 3.4vw, 2.7rem); line-height: 1; }
+    .plan-card .btn { width: 100%; font-size: 14px; }
+    .plan-card.is-popular .btn { background: var(--accent); color: var(--accent-ink); }
+    .plan-card.is-popular .btn:hover { background: var(--accent-hover); }
+    .pricing-note { margin-top: 30px; text-align: center; font-size: 15px; color: var(--muted); }
+    .pricing-note a { color: var(--accent); font-weight: 600; border-bottom: 1px solid rgba(34, 227, 58, 0.4); transition: border-color var(--ease); }
+    .pricing-note a:hover { border-color: var(--accent); }
+
+    /* =========================================================
+       SOBRE MÍ
+       ========================================================= */
+    .about { display: grid; grid-template-columns: 1.05fr 1fr; background: var(--bg-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .about-media { min-height: 460px; }
+    .about-media img { object-position: 50% 60%; transform: translate3d(0, var(--py, 0px), 0); scale: 1.12; }
+    .about-media::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(11, 16, 14, 0) 55%, var(--bg-alt) 100%), linear-gradient(0deg, rgba(5, 7, 6, 0.55) 0%, rgba(5, 7, 6, 0) 40%); }
+    .about-hand { position: absolute; z-index: 1; right: 11%; top: 50%; transform: translateY(-50%) rotate(-9deg); font-size: clamp(30px, 3.4vw, 42px); text-align: center; text-shadow: 0 2px 24px rgba(0, 0, 0, 0.8); }
+    .about-hand .swoosh { width: 110px; margin: 4px 0 0 auto; }
+    .about-body { padding: var(--section-y) var(--gutter) var(--section-y) clamp(28px, 4vw, 56px); max-width: calc(var(--container) / 2 + var(--gutter)); align-self: center; }
+    .about-body .eyebrow { margin-bottom: 10px; }
+    .about-name { margin-top: 8px; font-weight: 600; color: var(--accent); }
+    .about-text { margin-top: 18px; font-size: 15.5px; line-height: 1.7; color: #dfe5e3; max-width: 520px; }
+    .about-features { display: grid; gap: 12px; margin-top: 26px; max-width: 460px; }
+    .about-features li { display: flex; align-items: center; gap: 14px; padding: 12px 16px; border-radius: 12px; font-size: 14.5px; font-weight: 500; color: #e7ecea; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line); transition: border-color var(--ease), transform 0.3s var(--ease-out); }
+    .about-features li:hover { border-color: rgba(34, 227, 58, 0.4); transform: translateX(6px); }
+    .about-features svg { width: 26px; height: 26px; color: var(--accent); }
+
+    /* =========================================================
+       VENTAJAS (cuadrícula asimétrica)
+       ========================================================= */
+    .why-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; }
+    .why-card { grid-column: span 2; padding: 28px 26px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); transition: border-color var(--ease), transform 0.4s var(--ease-out); }
+    .why-card:hover { border-color: rgba(34, 227, 58, 0.4); transform: translateY(-5px); }
+    .why-card.wide { grid-column: span 4; display: flex; flex-direction: column; justify-content: flex-end; min-height: 220px; background: linear-gradient(135deg, rgba(34, 227, 58, 0.1), rgba(16, 22, 21, 0) 55%), var(--card); }
+    .why-icon { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 14px; margin-bottom: 18px; background: rgba(34, 227, 58, 0.1); border: 1px solid rgba(34, 227, 58, 0.25); color: var(--accent); }
+    .why-icon svg { width: 28px; height: 28px; }
+    .why-card.wide .why-icon { width: 60px; height: 60px; margin-bottom: auto; }
+    .why-card h3 { font-family: var(--font-head); font-weight: 700; font-size: 18px; line-height: 1.3; }
+    .why-card.wide h3 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
+    .why-card p { margin-top: 8px; font-size: 14.5px; line-height: 1.55; color: var(--muted); }
+
+    /* =========================================================
+       OPINIONES (solo se muestra si hay testimonios en CONFIG)
+       ========================================================= */
+    .testimonials { background: var(--bg-alt); border-top: 1px solid var(--line); }
+    .quotes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+    .quote { padding: 26px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); }
+    .quote p { font-size: 15.5px; line-height: 1.65; color: #e7ecea; }
+    .quote footer { margin-top: 16px; font-size: 13.5px; font-weight: 600; color: var(--accent); }
+
+    /* =========================================================
+       PREGUNTAS FRECUENTES
+       ========================================================= */
+    .faq-wrap { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(28px, 5vw, 72px); align-items: start; }
+    .faq-intro { position: sticky; top: calc(var(--header-h) + 32px); }
+    .faq-intro .eyebrow { margin-bottom: 10px; }
+    .faq-intro h2::after { content: ""; display: block; width: 44px; height: 3px; margin-top: 16px; background: var(--accent); border-radius: 2px; }
+    .faq-intro p { margin-top: 18px; color: var(--muted); max-width: 340px; }
+    .faq-intro .btn { margin-top: 22px; }
+    .faq-list { display: grid; gap: 10px; }
+    .faq-item { background: var(--card-2); border: 1px solid var(--line); border-radius: 12px; transition: border-color var(--ease), background-color var(--ease); }
+    .faq-item:hover { border-color: var(--line-strong); }
+    .faq-item.is-open { border-color: rgba(34, 227, 58, 0.4); background: var(--card); }
+    .faq-item h3 { font: inherit; }
+    .faq-btn { width: 100%; min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 12px 20px; text-align: left; font-size: 15.5px; font-weight: 600; color: #e9eeec; border-radius: 12px; transition: color var(--ease); }
+    .faq-btn:hover, .faq-btn[aria-expanded="true"] { color: var(--accent); }
+    .faq-btn svg { width: 20px; height: 20px; transition: transform 0.35s var(--ease-out); }
+    .faq-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
+    .faq-panel { display: grid; grid-template-rows: 0fr; visibility: hidden; transition: grid-template-rows 0.4s var(--ease-out), visibility 0s linear 0.4s; }
+    .faq-panel.is-open { grid-template-rows: 1fr; visibility: visible; transition-delay: 0s; }
+    .faq-panel > div { overflow: hidden; }
+    .faq-panel p { padding: 0 20px 20px; font-size: 15px; line-height: 1.65; color: var(--muted); }
+
+    /* =========================================================
+       CONTACTO (banner final)
+       ========================================================= */
+    .contact { padding-top: 0; }
+    .contact-card { position: relative; isolation: isolate; border-radius: 24px; overflow: hidden; border: 1px solid rgba(34, 227, 58, 0.3); min-height: 380px; display: flex; align-items: center; box-shadow: 0 0 80px rgba(34, 227, 58, 0.1); }
+    .contact-card .media { position: absolute; inset: 0; z-index: -1; }
+    .contact-card .media img { object-position: 70% 50%; transform: translate3d(0, var(--py, 0px), 0); scale: 1.1; }
+    .contact-card .media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5, 7, 6, 0.94) 0%, rgba(5, 7, 6, 0.66) 50%, rgba(5, 7, 6, 0.12) 100%); }
+    .contact-body { padding: clamp(32px, 5vw, 60px); max-width: 560px; }
+    .contact-kicker { font-size: 14px; font-weight: 600; color: var(--accent); }
+    .contact-body h2 { margin-top: 8px; font-family: var(--font-head); font-weight: 800; font-size: clamp(1.7rem, 3.4vw, 2.5rem); line-height: 1.15; }
+    .contact-text { margin-top: 14px; max-width: 400px; font-size: 16px; line-height: 1.6; color: #e1e7e5; }
+    .contact-body .btn { margin-top: 26px; }
+    .contact-phone { display: flex; align-items: center; gap: 8px; margin-top: 20px; font-size: 14px; color: #e7ecea; }
+    .contact-phone svg { width: 16px; height: 16px; color: var(--accent); }
+    .contact-phone a { font-weight: 600; }
+    .contact-phone a:hover { color: var(--accent); }
+
+    /* =========================================================
+       FORMULARIO
+       ========================================================= */
+    .form-wrap { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(28px, 5vw, 72px); align-items: start; margin-top: clamp(56px, 8vw, 96px); }
+    .form-intro .eyebrow { margin-bottom: 10px; }
+    .form-lead { margin-top: 16px; color: var(--muted); max-width: 380px; }
+    .form-points { margin-top: 22px; display: grid; gap: 10px; }
+    .form-points li { display: flex; align-items: center; gap: 12px; font-size: 15px; color: #e7ecea; }
+    .form-points svg { width: 22px; height: 22px; padding: 4px; border-radius: 50%; background: rgba(34, 227, 58, 0.14); color: var(--accent); }
+    .form-card.flash { animation: flash 1.4s ease-out; }
+    @keyframes flash { 0% { box-shadow: 0 0 0 0 rgba(34, 227, 58, 0.55); } 100% { box-shadow: 0 0 0 28px rgba(34, 227, 58, 0); } }
+    .form-card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: clamp(22px, 3.4vw, 36px); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .field { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { font-size: 13.5px; font-weight: 600; color: #e7ecea; }
+    .field .opt { font-weight: 400; color: var(--muted); }
+    .field input[type="text"], .field input[type="tel"], .field input[type="email"], .field select, .field textarea {
+      width: 100%; min-height: 48px; padding: 12px 14px; font: inherit; font-size: 15px; color: var(--text);
+      background: var(--bg); border: 1px solid var(--line-strong); border-radius: 12px;
+      transition: border-color var(--ease), box-shadow var(--ease);
+    }
+    .field textarea { min-height: 112px; resize: vertical; }
+    .field select { appearance: none; -webkit-appearance: none; padding-right: 40px; cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a8b0ad' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 12px center; background-size: 20px; }
+    .field select option { background: var(--card); color: var(--text); }
+    .field ::placeholder { color: #6b7572; }
+    .field input:hover, .field select:hover, .field textarea:hover { border-color: rgba(255, 255, 255, 0.3); }
+    .field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(34, 227, 58, 0.22); }
+    .field [aria-invalid="true"] { border-color: #ff7a7a; }
+    .field-error { font-size: 13px; color: #ff9c9c; }
+    .field-error:empty { display: none; }
+    .field label.check { display: flex; align-items: flex-start; gap: 12px; min-height: 44px; cursor: pointer; font-weight: 400; font-size: 14px; color: #dfe5e3; line-height: 1.5; }
+    .check input { width: 22px; height: 22px; margin: 1px 0 0; flex-shrink: 0; accent-color: var(--accent); cursor: pointer; }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .submit { width: 100%; margin-top: 22px; }
+    .submit[disabled] { opacity: 0.7; cursor: progress; transform: none; }
+    .form-note { margin-top: 14px; font-size: 12.5px; line-height: 1.5; color: var(--muted); text-align: center; }
+    .form-status { margin-top: 16px; padding: 14px 16px; border-radius: 12px; font-size: 14.5px; line-height: 1.55; }
+    .form-status.is-error { background: rgba(255, 122, 122, 0.08); border: 1px solid rgba(255, 122, 122, 0.4); color: #ffd0d0; }
+    .form-status a { color: var(--accent); font-weight: 600; border-bottom: 1px solid rgba(34, 227, 58, 0.5); }
+    .form-success { text-align: center; padding: 24px 8px; }
+    .form-success svg { display: block; width: 64px; height: 64px; padding: 16px; margin: 0 auto 18px; border-radius: 50%; color: var(--accent-ink); background: var(--accent); box-shadow: 0 0 40px var(--accent-glow); }
+    .form-success h3 { font-family: var(--font-head); font-weight: 800; font-size: 1.5rem; }
+    .form-success p { margin-top: 10px; color: var(--muted); }
+    .form-success .btn { margin-top: 20px; }
+
+    /* =========================================================
+       PIE
+       ========================================================= */
+    .site-footer { background: var(--bg); border-top: 1px solid var(--line); padding: 24px 0; }
+    .footer-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 20px; }
+    .footer-location { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: #e7ecea; }
+    .footer-location svg { width: 16px; height: 16px; color: var(--accent); }
+    .footer-right { display: flex; align-items: center; justify-content: flex-end; gap: 18px; }
+    .socials { display: flex; align-items: center; gap: 2px; }
+    .socials a { width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; border-radius: 10px; color: #fff; transition: color var(--ease), transform var(--ease); }
+    .socials a svg { width: 20px; height: 20px; }
+    .socials a[href]:hover { color: var(--accent); transform: translateY(-3px); }
+    .socials a[aria-disabled="true"] { opacity: 0.45; cursor: default; }
+    .footer-tagline { font-size: 12.5px; color: var(--muted); }
+
+    /* Botón flotante de contacto (aparece al bajar) */
+    .fab { position: fixed; right: 18px; bottom: 18px; z-index: 90; width: 58px; height: 58px; display: grid; place-items: center; border-radius: 50%; background: var(--accent); color: var(--accent-ink); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(34, 227, 58, 0.5); opacity: 0; transform: translateY(20px) scale(0.8); pointer-events: none; transition: opacity 0.4s ease, transform 0.4s var(--ease-out), background-color var(--ease); }
+    .fab.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+    .fab:hover { background: var(--accent-hover); }
+    .fab svg { width: 30px; height: 30px; }
+    .fab::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--accent); animation: ping 2.6s ease-out infinite; }
+    @keyframes ping { 0% { transform: scale(1); opacity: 0.7; } 70%, 100% { transform: scale(1.7); opacity: 0; } }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+    @media (max-width: 1099px) {
+      .goals-grid { grid-template-columns: repeat(2, 1fr); }
+      .plans-grid { grid-template-columns: repeat(2, 1fr); row-gap: 28px; max-width: 700px; margin: 0 auto; }
+      .hero-media { width: 66%; }
+    }
+
+    @media (max-width: 999px) {
+      .menu-toggle { display: inline-flex; }
+      .nav { display: none; position: absolute; left: 0; right: 0; top: var(--header-h); background: rgba(5, 7, 6, 0.98); border-bottom: 1px solid var(--line); }
+      .nav.is-open { display: block; }
+      .nav ul { flex-direction: column; align-items: stretch; gap: 0; padding: 8px var(--gutter) 16px; }
+      .nav a { width: 100%; min-height: 48px; padding: 0 4px; font-size: 16px; border-bottom: 1px solid var(--line); }
+      .nav li:last-child a { border-bottom: 0; }
+      .nav a::after { left: 4px; right: auto; width: 28px; bottom: 8px; }
+
+      .service-panel { grid-template-columns: 1fr; max-width: 640px; margin: 0 auto; }
+      .service-media { max-height: 380px; aspect-ratio: 16 / 11; }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); row-gap: 36px; }
+      .steps-grid::before, .steps-grid::after { display: none; }
+      .about { grid-template-columns: 1fr; }
+      .about-media { min-height: 340px; }
+      .about-media::after { background: linear-gradient(0deg, var(--bg-alt) 0%, rgba(11, 16, 14, 0) 45%); }
+      .about-body { max-width: 720px; margin: 0 auto; padding: 8px var(--gutter) var(--section-y); }
+      .why-card, .why-card.wide { grid-column: span 3; }
+      .why-card.wide { min-height: 0; }
+      .faq-wrap, .form-wrap { grid-template-columns: 1fr; }
+      .form-lead { max-width: none; }
+      .faq-intro { position: static; }
+      .faq-intro p { max-width: none; }
+    }
+
+    @media (max-width: 767px) {
+      :root { --gutter: 16px; --header-h: 60px; }
+      .logo-mark { width: 41px; height: 32px; }
+      .logo-name { font-size: 16px; }
+      .logo-sub { font-size: 6.6px; letter-spacing: 0.2em; }
+
+      .hero { min-height: 0; align-items: flex-end; }
+      .hero-media { width: 100%; }
+      .hero-media img { object-position: 65% 20%; }
+      .hero-media::after { background: linear-gradient(0deg, var(--bg) 0%, rgba(5, 7, 6, 0.9) 48%, rgba(5, 7, 6, 0.55) 78%, rgba(5, 7, 6, 0.25) 100%); }
+      .hero-inner { padding-top: 64px; padding-bottom: 48px; }
+      .hero h1 { font-size: min(9.4vw, 3.4rem); }
+      .hero-lead { font-size: 16px; }
+      .benefits { flex-direction: column; gap: 12px; }
+      .benefits li { padding: 0; border-left: 0; }
+      .benefits li br { display: none; }
+      .hero-actions .btn { width: 100%; }
+      .hero-hand { position: static; margin: 30px 0 0 auto; width: max-content; font-size: 28px; animation: none; transform: rotate(-6deg); }
+      .scroll-cue { display: none; }
+
+      .goals-grid { grid-template-columns: 1fr; }
+      .goal-card { min-height: 0; }
+      .seg { width: 100%; }
+      .seg button { flex: 1; justify-content: center; padding: 0 10px; font-size: 14px; }
+      .service-media { aspect-ratio: 4 / 3; }
+      .steps-grid { grid-template-columns: 1fr; row-gap: 0; padding-left: 0; }
+      .step { display: grid; grid-template-columns: 64px 1fr; column-gap: 18px; text-align: left; padding: 0 0 30px; }
+      .step:last-child { padding-bottom: 0; }
+      .step-num { margin: 0; grid-row: span 2; }
+      .step::before { content: ""; position: absolute; left: 31px; top: 64px; bottom: 0; width: 2px; background: var(--line-strong); }
+      .step:last-child::before { display: none; }
+      .step p { margin-top: 6px; }
+      .plans-grid { grid-template-columns: 1fr; max-width: 420px; }
+      .about-media { min-height: 280px; }
+      .about-hand { right: 4%; top: 42%; font-size: 26px; }
+      .why-card, .why-card.wide { grid-column: span 6; }
+      .contact-card .media::after { background: linear-gradient(0deg, rgba(5, 7, 6, 0.95) 0%, rgba(5, 7, 6, 0.75) 100%); }
+      .contact-body .btn { width: 100%; }
+      .form-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 14px; }
+      .footer-right { flex-direction: column; gap: 6px; justify-content: center; }
+    }
+
+
+    /* Accesibilidad: sin animaciones si el usuario lo pide */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .js .reveal, .js .reveal-left { opacity: 1; transform: none; }
+      .steps-grid::after { transform: scaleX(1); }
+      .hero-media img, .about-media img, .contact-card .media img { transform: none; scale: 1; }
+      .marquee-track { width: auto; flex-wrap: wrap; justify-content: center; }
+      .marquee-group[aria-hidden="true"] { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================
+       ICONOS SVG (se reutilizan con <use href="#...">)
+       ========================================================= -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></g></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.5l5 5 10-11"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></symbol>
+      <symbol id="i-dumbbell" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 12h10"/><rect x="4" y="7.5" width="3" height="9" rx="1"/><rect x="17" y="7.5" width="3" height="9" rx="1"/><path d="M2 10v4M22 10v4"/></g></symbol>
+      <symbol id="i-shield-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.3-7.5 9.5-4.3-1.2-7.5-4.9-7.5-9.5V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></g></symbol>
+      <symbol id="i-bars" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="14" width="4" height="6.5" rx="1"/><rect x="10" y="9" width="4" height="11.5" rx="1"/><rect x="16.5" y="4" width="4" height="16.5" rx="1"/></g></symbol>
+      <symbol id="i-trainer" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M5 21v-3.5A3.5 3.5 0 0 1 8.5 14h7a3.5 3.5 0 0 1 3.5 3.5V21"/><path d="M3 21h18"/><path d="M4 3.5h3M17 3.5h3M3.5 2v3M20.5 2v3"/></g></symbol>
+      <symbol id="i-laptop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19.5h20"/></g></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 21v-1a5.5 5.5 0 0 1 5.5-5.5h4a5.5 5.5 0 0 1 5.5 5.5v1"/></g></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 12l7-7M16 5h3v3"/></g></symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M12 20s-7.5-4.6-9-9.3C1.9 7.2 4 4 7.3 4c2 0 3.5 1.1 4.7 2.8C13.2 5.1 14.7 4 16.7 4 20 4 22.1 7.2 21 10.7 19.5 15.4 12 20 12 20z"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M12 3l7.5 3v5.5c0 4.6-3.2 8.3-7.5 9.5-4.3-1.2-7.5-4.9-7.5-9.5V6z"/></symbol>
+      <symbol id="i-badge-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l2.4 1.8 3-.1.9 2.8 2.4 1.8-.9 2.9.9 2.8-2.4 1.8-.9 2.8-3-.1L12 21.5l-2.4-1.8-3 .1-.9-2.8-2.4-1.8.9-2.9-.9-2.8 2.4-1.8.9-2.8 3 .1z"/><path d="M8.5 12l2.4 2.4 4.6-4.8"/></g></symbol>
+      <symbol id="i-tag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12.6V4.5A1.5 1.5 0 0 1 4.5 3h8.1a1.5 1.5 0 0 1 1.06.44l7 7a1.5 1.5 0 0 1 0 2.12l-8.1 8.1a1.5 1.5 0 0 1-2.12 0l-7-7A1.5 1.5 0 0 1 3 12.6z"/><circle cx="8" cy="8" r="1.4"/></g></symbol>
+      <symbol id="i-heart-pulse" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.6-9-9.3C1.9 7.2 4 4 7.3 4c2 0 3.5 1.1 4.7 2.8C13.2 5.1 14.7 4 16.7 4 20 4 22.1 7.2 21 10.7 19.5 15.4 12 20 12 20z"/><path d="M5 11.5h3.5l1.5-3 2.5 6 1.5-3H19"/></g></symbol>
+      <symbol id="i-flame" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M12 3c.5 3.2-2.2 4.8-3.8 7C6.8 12 6 13.6 6 15.4 6 18.5 8.7 21 12 21s6-2.5 6-5.6c0-2.3-1.3-4-2.6-5.4-.3 1-.9 1.7-1.7 2C14.4 9.5 13.5 5.5 12 3z"/></symbol>
+      <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M13 2.5L5 13.5h6l-1 8 8-11h-6z"/></symbol>
+      <symbol id="i-flag" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M5 21V4M5 4.5c3-1.8 5.5 1.8 9 0 1.8-.9 3.4-.9 5 0v8c-1.6-.9-3.2-.9-5 0-3.5 1.8-6-1.8-9 0"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="0.6" fill="currentColor"/></g></symbol>
+      <symbol id="i-tiktok" viewBox="0 0 24 24"><path fill="currentColor" d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></symbol>
+      <symbol id="i-logo" viewBox="0 0 1070 825"><polygon fill="#1fd13c" points="235,10 990,10 10,813 570,197 73,197"/><polygon fill="#19bf3a" points="1057,10 182,813 875,813 1045,625 535,625"/><polygon fill="#5fcf2a" points="65,813 565,412 155,813"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- =========================================================
+       CABECERA (con barra de progreso de lectura)
+       ========================================================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#inicio" aria-label="Zeta Fitness, ir al inicio">
+        <svg class="logo-mark" aria-hidden="true"><use href="#i-logo"/></svg>
+        <span class="logo-text">
+          <span class="logo-name"><span class="accent">ZETA</span> FITNESS</span>
+          <span class="logo-sub">BY ANTONIO RODRIGUEZ</span>
+        </span>
+      </a>
+
+      <nav class="nav" id="menu-principal" aria-label="Menú principal">
+        <ul>
+          <li><a href="#inicio" class="is-active">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#proceso">Cómo funciona</a></li>
+          <li><a href="#tarifas">Tarifas</a></li>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú">
+          <svg class="icon-open" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="icon-close" aria-hidden="true"><use href="#i-close"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="progress" id="progress" aria-hidden="true"></div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- =========================================================
+         HERO
+         ========================================================= -->
+    <section id="inicio" class="hero" aria-labelledby="titulo-hero">
+      <!-- FOTO: se cambia en CONFIG.images.hero -->
+      <div class="hero-media media" data-parallax="0.06">
+        <img data-img="hero" alt="Hombre entrenando con mancuernas en un gimnasio con luces verdes" width="1400" height="1000" fetchpriority="high" decoding="async">
+      </div>
+
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <p class="eyebrow" style="--i:0">Tu objetivo, mi compromiso</p>
+          <h1 id="titulo-hero" style="--i:1">Entrenamiento <span class="h1-accent">Personal</span></h1>
+          <p class="hero-lead" style="--i:2">Mejora tu salud, gana fuerza y alcanza tus objetivos con un plan totalmente personalizado, adaptado a ti y a tu estilo de vida.</p>
+
+          <ul class="benefits" style="--i:3">
+            <li><svg aria-hidden="true"><use href="#i-dumbbell"/></svg><span>Plan 100% <br>personalizado</span></li>
+            <li><svg aria-hidden="true"><use href="#i-shield-check"/></svg><span>Acompañamiento <br>profesional</span></li>
+            <li><svg aria-hidden="true"><use href="#i-bars"/></svg><span>Resultados <br>sostenibles</span></li>
+          </ul>
+
+          <div class="hero-actions" style="--i:4">
+            <a class="btn btn-primary btn-lg" href="#formulario">
+              <svg aria-hidden="true"><use href="#i-mail"/></svg>
+              Solicita información
+              <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+            <a class="btn btn-ghost btn-lg" href="#tarifas">Ver tarifas</a>
+          </div>
+
+          <div class="hero-modes" style="--i:5">
+            <span class="pill"><svg aria-hidden="true"><use href="#i-pin"/></svg>Presencial en Sevilla</span>
+            <span class="pill"><svg aria-hidden="true"><use href="#i-laptop"/></svg>Online desde donde quieras</span>
+          </div>
+        </div>
+
+        <p class="hand hero-hand">Tu mejor versión<br>empieza hoy
+          <svg class="swoosh" viewBox="0 0 120 14" aria-hidden="true"><path d="M3 11C35 4 80 2 117 4" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg>
+        </p>
+      </div>
+      <span class="scroll-cue" aria-hidden="true"></span>
+    </section>
+
+    <!-- =========================================================
+         FRANJA EN MOVIMIENTO (palabras editables aquí; el segundo grupo es una copia para el bucle)
+         ========================================================= -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-group"><span>Fuerza</span><i></i><span>Técnica</span><i></i><span>Constancia</span><i></i><span>Resultados</span><i></i><span>Salud</span><i></i><span>Disciplina</span><i></i></div>
+        <div class="marquee-group" aria-hidden="true"><span>Fuerza</span><i></i><span>Técnica</span><i></i><span>Constancia</span><i></i><span>Resultados</span><i></i><span>Salud</span><i></i><span>Disciplina</span><i></i></div>
+      </div>
+    </div>
+
+    <!-- =========================================================
+         OBJETIVOS (las tarjetas se generan desde CONFIG.goals)
+         ========================================================= -->
+    <section id="objetivos" class="section" aria-labelledby="titulo-objetivos">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Empieza por aquí</p>
+          <h2 class="section-title" id="titulo-objetivos">¿Cuál es tu <span class="accent">objetivo</span>?</h2>
+          <p class="section-sub">Elige el tuyo y cuéntamelo en el formulario: lo tendré en cuenta desde el primer mensaje.</p>
+        </div>
+        <div class="goals-grid" id="goals-grid">
+          <!-- Se rellena con JavaScript. Editar CONFIG.goals -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SERVICIOS (pestañas presencial / online)
+         ========================================================= -->
+    <section id="servicios" class="section services" aria-labelledby="titulo-servicios">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Mis servicios</p>
+          <h2 class="section-title" id="titulo-servicios">Entrenamiento presencial y <span class="accent">online</span></h2>
+        </div>
+
+        <div class="seg reveal" role="tablist" aria-label="Modalidad de entrenamiento">
+          <button type="button" role="tab" id="tab-presencial" aria-selected="true" aria-controls="panel-presencial"><svg aria-hidden="true"><use href="#i-trainer"/></svg>Presencial</button>
+          <button type="button" role="tab" id="tab-online" aria-selected="false" aria-controls="panel-online" tabindex="-1"><svg aria-hidden="true"><use href="#i-laptop"/></svg>Online</button>
+        </div>
+
+        <!-- Panel: presencial -->
+        <div class="service-panel" id="panel-presencial" role="tabpanel" aria-labelledby="tab-presencial">
+          <!-- FOTO: se cambia en CONFIG.images.presencial -->
+          <div class="service-media media" data-parallax="0">
+            <img data-img="presencial" alt="Mancuernas ordenadas en un rack" width="800" height="800" loading="lazy" decoding="async">
+            <span class="service-tag"><svg aria-hidden="true"><use href="#i-pin"/></svg>A domicilio · Sevilla</span>
+          </div>
+          <div>
+            <div class="service-head">
+              <svg aria-hidden="true"><use href="#i-trainer"/></svg>
+              <h3>Entrenamiento presencial</h3>
+            </div>
+            <p class="service-text">Sesiones en un entorno seguro y motivador, con atención completa y seguimiento continuo.</p>
+            <ul class="checklist">
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Entrenamiento a domicilio en Sevilla</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Corrección de técnica</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Seguimiento y evolución</li>
+            </ul>
+            <a class="btn btn-outline" href="#formulario" data-prefill-mode="Presencial en Sevilla">Más información<span class="sr-only"> sobre el entrenamiento presencial (ir al formulario)</span></a>
+          </div>
+        </div>
+
+        <!-- Panel: online -->
+        <div class="service-panel" id="panel-online" role="tabpanel" aria-labelledby="tab-online" hidden>
+          <!-- FOTO: se cambia en CONFIG.images.online -->
+          <div class="service-media media" data-parallax="0">
+            <img data-img="online" alt="Mano sosteniendo un móvil con una aplicación de entrenamiento" width="800" height="800" loading="lazy" decoding="async">
+            <span class="service-tag"><svg aria-hidden="true"><use href="#i-laptop"/></svg>Desde donde quieras</span>
+          </div>
+          <div>
+            <div class="service-head">
+              <svg aria-hidden="true"><use href="#i-laptop"/></svg>
+              <h3>Entrenamiento online</h3>
+            </div>
+            <p class="service-text">Entrena desde donde quieras, con la misma calidad y seguimiento que en persona.</p>
+            <ul class="checklist">
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Plan de entrenamiento personalizado</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Vídeos explicativos</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Contacto y seguimiento continuo</li>
+            </ul>
+            <a class="btn btn-outline" href="#formulario" data-prefill-mode="Online">Más información<span class="sr-only"> sobre el entrenamiento online (ir al formulario)</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         CÓMO FUNCIONA
+         EDITAR: confirmar los pasos con el entrenador
+         ========================================================= -->
+    <section id="proceso" class="section" aria-labelledby="titulo-proceso">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Cómo funciona</p>
+          <h2 class="section-title" id="titulo-proceso">Empezar es <span class="accent">más fácil</span> de lo que crees</h2>
+          <p class="section-sub">Cuatro pasos sencillos, sin papeleo y sin compromisos raros.</p>
+        </div>
+        <ol class="steps-grid" id="steps-grid">
+          <li class="step reveal" style="--d:0s">
+            <span class="step-num" aria-hidden="true">1</span>
+            <h3>Escríbeme</h3>
+            <p>Cuéntame tu objetivo y tu disponibilidad en el formulario de contacto.</p>
+          </li>
+          <li class="step reveal" style="--d:0.12s">
+            <span class="step-num" aria-hidden="true">2</span>
+            <h3>Definimos tu punto de partida</h3>
+            <p>Concretamos nivel, objetivos y modalidad: presencial u online.</p>
+          </li>
+          <li class="step reveal" style="--d:0.24s">
+            <span class="step-num" aria-hidden="true">3</span>
+            <h3>Recibes tu plan</h3>
+            <p>Un plan personalizado, adaptado a ti y a tu estilo de vida.</p>
+          </li>
+          <li class="step reveal" style="--d:0.36s">
+            <span class="step-num" aria-hidden="true">4</span>
+            <h3>Entrenamos y ajustamos</h3>
+            <p>Seguimiento continuo para progresar y no rendirte por el camino.</p>
+          </li>
+        </ol>
+        <div class="steps-cta reveal">
+          <a class="btn btn-primary btn-lg" href="#formulario">
+            <svg aria-hidden="true"><use href="#i-mail"/></svg>Dar el primer paso<svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         TARIFAS  (las tarjetas se generan desde CONFIG.plans)
+         ========================================================= -->
+    <section id="tarifas" class="section" style="padding-top:0" aria-labelledby="titulo-tarifas">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Tarifas</p>
+          <h2 class="section-title" id="titulo-tarifas">Elige el plan que mejor se adapte a ti</h2>
+        </div>
+        <div class="plans-grid" id="plans-grid">
+          <!-- Se rellena con JavaScript. NO editar aquí: editar CONFIG.plans -->
+        </div>
+        <p class="pricing-note reveal">¿No sabes cuál elegir? <a href="#formulario">Escríbeme y te oriento</a></p>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SOBRE MÍ
+         ========================================================= -->
+    <section id="sobre-mi" class="about" aria-labelledby="titulo-sobre-mi">
+      <!-- FOTO: se cambia en CONFIG.images.sobreMi -->
+      <div class="about-media media" data-parallax="0.05">
+        <img data-img="sobreMi" alt="Gimnasio en penumbra con una barra olímpica cargada de discos" width="1600" height="900" loading="lazy" decoding="async">
+        <p class="hand about-hand">Disciplina<br>Hoy.<br>Resultados<br>Mañana.
+          <svg class="swoosh" viewBox="0 0 96 14" aria-hidden="true"><path d="M3 11C30 5 62 3 93 4" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg>
+        </p>
+      </div>
+
+      <div class="about-body">
+        <p class="eyebrow reveal">Sobre mí</p>
+        <h2 class="section-title reveal" id="titulo-sobre-mi" style="--d:.08s">Tu entrenador personal en Sevilla</h2>
+
+        <!-- Nombre del entrenador: se muestra solo si CONFIG.trainerName tiene valor -->
+        <p class="about-name" id="trainer-name" hidden></p>
+
+        <p class="about-text reveal" style="--d:.16s">Soy un apasionado del deporte y la salud. Mi objetivo es ayudarte a mejorar tu condición física, ganar confianza y crear hábitos que te acompañen toda la vida. Cada persona es diferente, por eso mi enfoque es personalizado y adaptado a tus necesidades, nivel y objetivos.</p>
+
+        <!-- HUECO PARA EXPERIENCIA Y TITULACIÓN (vacío a propósito: no inventar datos).
+             Cuando el entrenador los confirme, descomentar y rellenar:
+        <p class="about-text">Experiencia: ...</p>
+        <p class="about-text">Titulación: ...</p>
+        -->
+
+        <ul class="about-features">
+          <li class="reveal" style="--d:.2s"><svg aria-hidden="true"><use href="#i-user"/></svg>Atención personalizada</li>
+          <li class="reveal" style="--d:.28s"><svg aria-hidden="true"><use href="#i-target"/></svg>Plan adaptado a ti</li>
+          <li class="reveal" style="--d:.36s"><svg aria-hidden="true"><use href="#i-heart"/></svg>Tu bienestar es mi prioridad</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         VENTAJAS
+         ========================================================= -->
+    <section class="section" aria-labelledby="titulo-ventajas">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Por qué elegirme</p>
+          <h2 class="section-title" id="titulo-ventajas">¿Por qué entrenar <span class="accent">conmigo</span>?</h2>
+        </div>
+        <div class="why-grid">
+          <article class="why-card wide spot reveal">
+            <span class="why-icon"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>
+            <h3>Planes personalizados</h3>
+            <p>Adaptados a tu nivel, objetivos y disponibilidad.</p>
+          </article>
+          <article class="why-card spot reveal" style="--d:.1s">
+            <span class="why-icon"><svg aria-hidden="true"><use href="#i-badge-check"/></svg></span>
+            <h3>Seguimiento constante</h3>
+            <p>Te acompaño en todo el proceso para que no te rindas.</p>
+          </article>
+          <article class="why-card spot reveal">
+            <span class="why-icon"><svg aria-hidden="true"><use href="#i-tag"/></svg></span>
+            <h3>Resultados reales</h3>
+            <p>Mejora tu salud, fuerza y bienestar día a día.</p>
+          </article>
+          <article class="why-card wide spot reveal" style="--d:.1s">
+            <span class="why-icon"><svg aria-hidden="true"><use href="#i-heart-pulse"/></svg></span>
+            <h3>Flexibilidad</h3>
+            <p>Entrena a tu ritmo, presencial o desde donde quieras.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         OPINIONES: se muestra SOLO si CONFIG.testimonials tiene contenido (por defecto vacío, no se inventa nada)
+         ========================================================= -->
+    <section id="opiniones" class="section testimonials" aria-labelledby="titulo-opiniones" hidden>
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Opiniones</p>
+          <h2 class="section-title" id="titulo-opiniones">Lo que dicen mis clientes</h2>
+        </div>
+        <div class="quotes-grid" id="quotes-grid"></div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PREGUNTAS FRECUENTES
+         ========================================================= -->
+    <section id="faq" class="section" style="padding-top:0" aria-labelledby="titulo-faq">
+      <div class="container faq-wrap">
+        <div class="faq-intro reveal-left">
+          <p class="eyebrow">Resuelve tus dudas</p>
+          <h2 class="section-title" id="titulo-faq">Preguntas frecuentes</h2>
+          <p>¿Hay algo que no aparece aquí? Pregúntamelo directamente, sin compromiso.</p>
+          <a class="btn btn-outline" href="#formulario"><svg aria-hidden="true"><use href="#i-mail"/></svg>Hacer una pregunta</a>
+        </div>
+        <div class="faq-list">
+          <!-- EDITAR: confirmar con el entrenador -->
+          <div class="faq-item reveal" style="--d:0s">
+            <h3><button class="faq-btn" type="button" aria-expanded="false" aria-controls="faq-1">¿Cuánto dura cada sesión?<svg aria-hidden="true"><use href="#i-chevron"/></svg></button></h3>
+            <div class="faq-panel" id="faq-1" role="region"><div><p>La duración se confirma con el entrenador según tu plan y tus objetivos. Escríbele con el formulario de contacto y te lo indica.</p></div></div>
+          </div>
+          <!-- EDITAR: confirmar con el entrenador -->
+          <div class="faq-item reveal" style="--d:.08s">
+            <h3><button class="faq-btn" type="button" aria-expanded="false" aria-controls="faq-2">¿Necesito experiencia previa?<svg aria-hidden="true"><use href="#i-chevron"/></svg></button></h3>
+            <div class="faq-panel" id="faq-2" role="region"><div><p>No es necesario: el plan se adapta a tu nivel, objetivos y disponibilidad.</p></div></div>
+          </div>
+          <!-- EDITAR: confirmar con el entrenador -->
+          <div class="faq-item reveal" style="--d:.16s">
+            <h3><button class="faq-btn" type="button" aria-expanded="false" aria-controls="faq-3">¿Puedo entrenar online si no tengo material?<svg aria-hidden="true"><use href="#i-chevron"/></svg></button></h3>
+            <div class="faq-panel" id="faq-3" role="region"><div><p>Consúltalo en el formulario de contacto y te indicará las opciones según el material del que dispongas.</p></div></div>
+          </div>
+          <!-- EDITAR: confirmar con el entrenador -->
+          <div class="faq-item reveal" style="--d:.24s">
+            <h3><button class="faq-btn" type="button" aria-expanded="false" aria-controls="faq-4">¿Cómo puedo reservar una sesión?<svg aria-hidden="true"><use href="#i-chevron"/></svg></button></h3>
+            <div class="faq-panel" id="faq-4" role="region"><div><p>Rellena el formulario de contacto de esta página y acordáis fecha y modalidad.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         CONTACTO (banner final)
+         ========================================================= -->
+    <section id="contacto" class="section contact" aria-labelledby="titulo-contacto">
+      <div class="container">
+        <div class="contact-card reveal">
+          <!-- FOTO: se cambia en CONFIG.images.contacto -->
+          <div class="media" data-parallax="0.04">
+            <img data-img="contacto" alt="" width="1200" height="800" loading="lazy" decoding="async">
+          </div>
+          <div class="contact-body">
+            <p class="contact-kicker">¿Listo para empezar?</p>
+            <h2 id="titulo-contacto">Contacta conmigo</h2>
+            <p class="contact-text">Si tienes alguna duda o quieres más información, estaré encantado de ayudarte.</p>
+            <a class="btn btn-primary btn-lg" href="#formulario">
+              <svg aria-hidden="true"><use href="#i-mail"/></svg>
+              Enviar mensaje
+              <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+            <!-- El correo se cambia en CONFIG.contactEmail (si está vacío, esta línea se oculta) -->
+            <p class="contact-phone" id="contact-email-line">
+              <svg aria-hidden="true"><use href="#i-mail"/></svg>
+              <span>También puedes escribirme a: <a id="display-email"></a></span>
+            </p>
+          </div>
+        </div>
+
+        <!-- =====================================================
+             FORMULARIO DE SOLICITUD
+             Se envía por correo a CONFIG.contactEmail (servicio gratuito FormSubmit).
+             Los campos y las opciones de los desplegables se editan aquí o en CONFIG.goals.
+             ===================================================== -->
+        <div class="form-wrap" id="formulario" style="scroll-margin-top: calc(var(--header-h) + 16px)">
+          <div class="form-intro reveal-left">
+            <p class="eyebrow">Solicita tu plan</p>
+            <h2 class="section-title" id="titulo-formulario">Cuéntame tu <span class="accent">objetivo</span></h2>
+            <p class="form-lead">Rellena el formulario y me pondré en contacto contigo para concretar un plan adaptado a ti. Sin compromiso.</p>
+            <ul class="form-points">
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Plan 100% personalizado</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Presencial en Sevilla u online</li>
+              <li><svg aria-hidden="true"><use href="#i-check"/></svg>Sin compromiso</li>
+            </ul>
+          </div>
+
+          <div class="form-card reveal">
+            <form class="lead-form" id="lead-form" novalidate aria-labelledby="titulo-formulario">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="f-nombre">Nombre <span aria-hidden="true">*</span></label>
+                  <input id="f-nombre" name="Nombre" type="text" autocomplete="name" required maxlength="80" aria-describedby="e-nombre">
+                  <p class="field-error" id="e-nombre" role="alert"></p>
+                </div>
+                <div class="field">
+                  <label for="f-email">Email <span aria-hidden="true">*</span></label>
+                  <input id="f-email" name="Email" type="email" autocomplete="email" required maxlength="120" aria-describedby="e-email">
+                  <p class="field-error" id="e-email" role="alert"></p>
+                </div>
+                <div class="field">
+                  <label for="f-telefono">Teléfono <span class="opt">(opcional)</span></label>
+                  <input id="f-telefono" name="Teléfono" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" aria-describedby="e-telefono">
+                  <p class="field-error" id="e-telefono" role="alert"></p>
+                </div>
+                <div class="field">
+                  <label for="f-objetivo">Tu objetivo</label>
+                  <select id="f-objetivo" name="Objetivo"><!-- opciones generadas desde CONFIG.goals --></select>
+                </div>
+                <div class="field">
+                  <label for="f-modalidad">Modalidad</label>
+                  <select id="f-modalidad" name="Modalidad">
+                    <option>Presencial en Sevilla</option>
+                    <option>Online</option>
+                    <option>Aún no lo sé</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="f-plan">Plan de interés</label>
+                  <select id="f-plan" name="Plan"><!-- opciones generadas desde CONFIG.plans --></select>
+                </div>
+                <div class="field">
+                  <label for="f-experiencia">Tu experiencia</label>
+                  <select id="f-experiencia" name="Experiencia">
+                    <option>Nunca he entrenado</option>
+                    <option>He entrenado alguna vez</option>
+                    <option>Entreno con regularidad</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="f-disponibilidad">Disponibilidad <span class="opt">(opcional)</span></label>
+                  <input id="f-disponibilidad" name="Disponibilidad" type="text" maxlength="120" placeholder="Ej.: tardes de lunes a jueves">
+                </div>
+                <div class="field full">
+                  <label for="f-mensaje">Mensaje <span class="opt">(opcional)</span></label>
+                  <textarea id="f-mensaje" name="Mensaje" rows="4" maxlength="800" placeholder="Cuéntame algo más sobre ti o tus dudas"></textarea>
+                </div>
+
+                <!-- Campo trampa contra spam: debe quedarse vacío -->
+                <div class="hp" aria-hidden="true"><label>No rellenar<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+
+                <div class="field full">
+                  <label class="check" for="f-consent">
+                    <input id="f-consent" name="Consentimiento" type="checkbox" required aria-describedby="e-consent">
+                    <span>Acepto que se usen mis datos para contactar conmigo sobre mi consulta. <span aria-hidden="true">*</span></span>
+                  </label>
+                  <p class="field-error" id="e-consent" role="alert"></p>
+                </div>
+              </div>
+
+              <button class="btn btn-primary btn-lg submit" type="submit" id="submit-btn">
+                <span class="submit-label">Enviar solicitud</span>
+                <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+              </button>
+              <!-- EDITAR: revisar con el entrenador la información de privacidad -->
+              <p class="form-note">Tus datos solo se usarán para responder a tu consulta. El envío se realiza a través de un servicio de formularios (FormSubmit).</p>
+              <div class="form-status" id="form-status" role="status" aria-live="polite" hidden></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       PIE
+       ========================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="logo" href="#inicio" aria-label="Zeta Fitness, volver al inicio">
+        <svg class="logo-mark" aria-hidden="true"><use href="#i-logo"/></svg>
+        <span class="logo-text">
+          <span class="logo-name"><span class="accent">ZETA</span> FITNESS</span>
+          <span class="logo-sub">BY ANTONIO RODRIGUEZ</span>
+        </span>
+      </a>
+
+      <p class="footer-location"><svg aria-hidden="true"><use href="#i-pin"/></svg>Sevilla</p>
+
+      <div class="footer-right">
+        <!-- Las redes se configuran en CONFIG (instagramUrl, tiktokUrl). Sin URL quedan desactivadas. -->
+        <div class="socials">
+          <a data-social="instagram" aria-label="Instagram"><svg aria-hidden="true"><use href="#i-instagram"/></svg></a>
+          <a data-social="tiktok" aria-label="TikTok"><svg aria-hidden="true"><use href="#i-tiktok"/></svg></a>
+          <a data-social="email" aria-label="Correo electrónico"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
+        </div>
+        <p class="footer-tagline">Tu salud, mi prioridad</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón flotante de contacto -->
+  <a class="fab" id="fab" href="#formulario" aria-label="Solicitar información">
+    <svg aria-hidden="true"><use href="#i-mail"/></svg>
+  </a>
+
+  <script>
+    /* =========================================================================
+       CONFIGURACIÓN EDITABLE
+       ----------------------------------------------------------------------
+       Este es el ÚNICO bloque que hace falta tocar para los cambios habituales.
+       Guarda el archivo y recarga la página para ver el resultado.
+       ========================================================================= */
+    const CONFIG = {
+      // Correo que recibe TODAS las solicitudes del formulario (servicio gratuito FormSubmit).
+      // IMPORTANTE: la primera vez que alguien envíe el formulario, FormSubmit mandará un correo de
+      // activación a esta dirección; hay que pulsar "Activate Form" (revisar también Spam).
+      contactEmail: "rdgzfitness@gmail.com",
+
+      // Redes sociales: pegar la dirección completa (https://...). Vacías = icono desactivado
+      instagramUrl: "",                           // EDITAR, p. ej. "https://www.instagram.com/usuario"
+      tiktokUrl: "",                              // EDITAR, p. ej. "https://www.tiktok.com/@usuario"
+
+      // Nombre del entrenador (aparece en "Sobre mí" solo si se rellena)
+      trainerName: "Antonio Rodriguez",                         // EDITAR
+
+      // TARIFAS: cada bloque es una tarjeta. El precio es un número (sin €).
+      // Cambiar aquí el precio lo cambia en la tarjeta y en el desplegable "Plan de interés" del formulario.
+      plans: [
+        { nombre: "1 sesión",        descripcion: "Entrenamiento presencial o online", precio: 30 },
+        { nombre: "Bono 4 sesiones", descripcion: "Presencial u online",               precio: 110, popular: true },
+        { nombre: "Bono 8 sesiones", descripcion: "Presencial u online",               precio: 200 },
+        { nombre: "Plan mensual",    descripcion: "Entrenamiento online",              precio: 80 }
+      ],
+
+      // OBJETIVOS (sección "¿Cuál es tu objetivo?"). Cada tarjeta lleva al formulario con ese objetivo ya elegido.
+      // icono: "flame" | "bolt" | "heart" | "flag".  EDITAR: confirmar con el entrenador.
+      goals: [
+        { icono: "flame", titulo: "Perder grasa",           texto: "Un plan para mejorar tu composición corporal de forma sostenible." },
+        { icono: "bolt",  titulo: "Ganar fuerza y músculo", texto: "Progresión guiada y técnica correcta para avanzar sin lesiones." },
+        { icono: "heart", titulo: "Mejorar tu salud",       texto: "Movimiento, energía y bienestar adaptados a tu día a día." },
+        { icono: "flag",  titulo: "Empezar desde cero",     texto: "Sin experiencia previa: empezamos a tu ritmo y a tu nivel." }
+      ],
+
+      // OPINIONES: por defecto vacío (la sección no se muestra). Solo añadir testimonios REALES y autorizados:
+      // testimonials: [ { texto: "…", autor: "Nombre" } ]
+      testimonials: [],
+
+      // FOTOS: ruta de cada imagen dentro de la carpeta img/ (si no existe, se ve un degradado)
+      images: {
+        hero:       "img/hero.jpg",
+        presencial: "img/presencial.jpg",
+        online:     "img/online.jpg",
+        sobreMi:    "img/sobre-mi.jpg",
+        contacto:   "img/contacto.jpg"
+      }
+    };
+    /* ======================= FIN DE LA CONFIGURACIÓN ======================= */
+
+
+    /* -------------------------------------------------------------------------
+       Utilidades
+       ------------------------------------------------------------------------- */
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const onlyDigits = (value) => String(value || "").replace(/\D/g, "");
+
+    function setExternal(link, url) {
+      link.href = url;
+      if (!url.startsWith("mailto:")) { link.target = "_blank"; link.rel = "noopener noreferrer"; }
+    }
+    function formatPrice(price) {
+      return typeof price === "number" ? price + "€" : String(price);
+    }
+    function svgIcon(id, className) {
+      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      if (className) svg.setAttribute("class", className);
+      svg.setAttribute("aria-hidden", "true");
+      const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+      use.setAttribute("href", "#i-" + id);
+      svg.appendChild(use);
+      return svg;
+    }
+    function el(tag, className, text) {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text) node.textContent = text;
+      return node;
+    }
+
+    /* -------------------------------------------------------------------------
+       Tarifas: tarjetas desde CONFIG.plans
+       ------------------------------------------------------------------------- */
+    (function renderPlans() {
+      const grid = document.getElementById("plans-grid");
+      CONFIG.plans.forEach((plan, index) => {
+        const price = formatPrice(plan.precio);
+        const card = el("article", "plan-card spot reveal" + (plan.popular ? " is-popular" : ""));
+        card.style.setProperty("--d", (index * 0.1) + "s");
+
+        if (plan.popular) card.appendChild(el("span", "plan-badge", "Más popular"));
+
+        const button = el("a", "btn btn-outline", "Contratar");
+        button.setAttribute("aria-label", "Contratar " + plan.nombre + " por " + price + " (ir al formulario)");
+        button.href = "#formulario";
+        button.dataset.prefillPlan = plan.nombre;
+
+        card.append(el("h3", "plan-name", plan.nombre), el("p", "plan-desc", plan.descripcion), el("p", "plan-price", price), button);
+        grid.appendChild(card);
+      });
+    })();
+
+    /* -------------------------------------------------------------------------
+       Objetivos: tarjetas desde CONFIG.goals
+       ------------------------------------------------------------------------- */
+    (function renderGoals() {
+      const grid = document.getElementById("goals-grid");
+      CONFIG.goals.forEach((goal, index) => {
+        const card = el("a", "goal-card spot reveal");
+        card.style.setProperty("--d", (index * 0.1) + "s");
+        card.href = "#formulario";
+        card.dataset.prefillGoal = goal.titulo;
+        card.setAttribute("aria-label", goal.titulo + ": solicitar información sobre este objetivo");
+
+        const icon = el("span", "goal-icon");
+        icon.appendChild(svgIcon(goal.icono));
+
+        const cta = el("span", "goal-cta", "Hablar de este objetivo");
+        cta.appendChild(svgIcon("arrow"));
+
+        card.append(icon, el("h3", "", goal.titulo), el("p", "", goal.texto), cta);
+        grid.appendChild(card);
+      });
+    })();
+
+    /* -------------------------------------------------------------------------
+       Formulario: opciones de objetivo desde CONFIG.goals, validación y envío por correo
+       ------------------------------------------------------------------------- */
+    (function leadForm() {
+      const form = document.getElementById("lead-form");
+      const wrap = document.getElementById("formulario");
+      if (!CONFIG.contactEmail) {                       // sin correo configurado, el formulario no se muestra
+        wrap.hidden = true;
+        return;
+      }
+
+      const objective = document.getElementById("f-objetivo");
+      CONFIG.goals.map((g) => g.titulo).concat("Otro / no lo tengo claro").forEach((text) => {
+        const opt = document.createElement("option");
+        opt.textContent = text;
+        objective.appendChild(opt);
+      });
+
+      const planSelect = document.getElementById("f-plan");
+      ["Aún no lo sé"].concat(CONFIG.plans.map((p) => p.nombre)).forEach((name, i) => {
+        const opt = document.createElement("option");
+        opt.value = name;
+        opt.textContent = i === 0 ? name : name + " (" + formatPrice(CONFIG.plans[i - 1].precio) + ")";
+        planSelect.appendChild(opt);
+      });
+
+      // Los botones "Contratar", "Más información" y las tarjetas de objetivo rellenan el formulario
+      const card = form.closest(".form-card");
+      document.addEventListener("click", (event) => {
+        const trigger = event.target.closest("[data-prefill-goal],[data-prefill-plan],[data-prefill-mode]");
+        if (!trigger) return;
+        if (trigger.dataset.prefillGoal) objective.value = trigger.dataset.prefillGoal;
+        if (trigger.dataset.prefillPlan) planSelect.value = trigger.dataset.prefillPlan;
+        if (trigger.dataset.prefillMode) document.getElementById("f-modalidad").value = trigger.dataset.prefillMode;
+        card.classList.remove("flash"); void card.offsetWidth; card.classList.add("flash");
+      });
+
+      const status = document.getElementById("form-status");
+      const submitBtn = document.getElementById("submit-btn");
+      const label = submitBtn.querySelector(".submit-label");
+
+      function setError(input, message) {
+        const box = document.getElementById(input.getAttribute("aria-describedby"));
+        if (box) box.textContent = message;
+        input.setAttribute("aria-invalid", message ? "true" : "false");
+        return !message;
+      }
+      function validate() {
+        const name = form.elements["Nombre"], phone = form.elements["Teléfono"], email = form.elements["Email"], consent = form.elements["Consentimiento"];
+        let firstBad = null;
+        const checks = [
+          [name, name.value.trim().length < 2 ? "Escribe tu nombre." : ""],
+          [email, !email.value.trim() ? "Escribe tu correo para que pueda responderte." : !email.checkValidity() ? "Revisa el correo electrónico." : ""],
+          [phone, phone.value.trim() && onlyDigits(phone.value).length < 9 ? "Revisa el teléfono (mínimo 9 cifras) o déjalo vacío." : ""],
+          [consent, consent.checked ? "" : "Necesitas aceptar para poder contactarte."]
+        ];
+        checks.forEach(([input, message]) => { if (!setError(input, message) && !firstBad) firstBad = input; });
+        if (firstBad) firstBad.focus();
+        return !firstBad;
+      }
+      form.addEventListener("input", (event) => { if (event.target.getAttribute("aria-invalid") === "true") setError(event.target, ""); });
+      form.addEventListener("change", (event) => { if (event.target.getAttribute("aria-invalid") === "true") setError(event.target, ""); });
+
+      // Si el envío falla, se ofrece escribir al mismo correo con los datos ya redactados
+      function showError(data) {
+        const lines = ["Nombre: " + data.Nombre, "Objetivo: " + data.Objetivo, "Modalidad: " + data.Modalidad, "Plan: " + data.Plan, "Experiencia: " + data.Experiencia];
+        if (data["Teléfono"]) lines.push("Teléfono: " + data["Teléfono"]);
+        if (data.Disponibilidad) lines.push("Disponibilidad: " + data.Disponibilidad);
+        if (data.Mensaje) lines.push("Mensaje: " + data.Mensaje);
+        const mail = "mailto:" + CONFIG.contactEmail + "?subject=" + encodeURIComponent("Solicitud desde la web Zeta Fitness") + "&body=" + encodeURIComponent(lines.join("\n"));
+        status.className = "form-status is-error";
+        status.textContent = "";
+        status.append("No se ha podido enviar el formulario. Puedes ");
+        const a = document.createElement("a"); a.textContent = "escribirnos desde tu correo"; a.href = mail;
+        status.append(a, " con estos mismos datos, o a " + CONFIG.contactEmail + ".");
+        status.hidden = false;
+      }
+
+      function showSuccess(name) {
+        const box = document.createElement("div");
+        box.className = "form-success";
+        box.setAttribute("tabindex", "-1");
+        box.appendChild(svgIcon("check"));
+        box.append(el("h3", "", "¡Solicitud enviada!"), el("p", "", "Gracias, " + name + ". Me pondré en contacto contigo para concretar tu plan."));
+        const again = el("button", "btn btn-outline", "Enviar otra solicitud");
+        again.type = "button";
+        again.addEventListener("click", () => { box.replaceWith(form); form.reset(); status.hidden = true; form.elements["Nombre"].focus(); });
+        box.appendChild(again);
+        form.replaceWith(box);
+        box.focus();
+      }
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        status.hidden = true;
+        if (!validate()) return;
+
+        const data = {};
+        new FormData(form).forEach((value, key) => { data[key] = typeof value === "string" ? value.trim() : value; });
+        data.Consentimiento = "Sí";
+        if (data._honey) { showSuccess(data.Nombre); return; }      // spam: se simula éxito sin enviar
+        delete data._honey;
+
+        submitBtn.disabled = true; label.textContent = "Enviando…";
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 15000);
+        try {
+          const response = await fetch("https://formsubmit.co/ajax/" + encodeURIComponent(CONFIG.contactEmail), {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            body: JSON.stringify(Object.assign({ _subject: "Nueva solicitud desde la web Zeta Fitness", _template: "table", _captcha: "false" }, data)),
+            signal: controller.signal
+          });
+          const result = await response.json().catch(() => ({}));
+          if (response.ok && (result.success === true || result.success === "true")) showSuccess(data.Nombre);
+          else showError(data);
+        } catch (error) {
+          showError(data);
+        } finally {
+          clearTimeout(timer);
+          submitBtn.disabled = false; label.textContent = "Enviar solicitud";
+        }
+      });
+    })();
+
+    /* -------------------------------------------------------------------------
+       Opiniones: solo si hay testimonios en CONFIG
+       ------------------------------------------------------------------------- */
+    (function renderQuotes() {
+      if (!CONFIG.testimonials || !CONFIG.testimonials.length) return;
+      const section = document.getElementById("opiniones");
+      const grid = document.getElementById("quotes-grid");
+      CONFIG.testimonials.forEach((item) => {
+        const quote = el("blockquote", "quote reveal");
+        quote.style.margin = "0";
+        quote.append(el("p", "", "“" + item.texto + "”"), el("footer", "", item.autor || ""));
+        grid.appendChild(quote);
+      });
+      section.hidden = false;
+    })();
+
+    /* -------------------------------------------------------------------------
+       Correo, redes y nombre
+       ------------------------------------------------------------------------- */
+    (function fillContactData() {
+      if (CONFIG.contactEmail) {
+        const mailLink = document.getElementById("display-email");
+        mailLink.textContent = CONFIG.contactEmail;
+        mailLink.href = "mailto:" + CONFIG.contactEmail;
+      } else {
+        document.getElementById("contact-email-line").hidden = true;
+      }
+
+      const socials = { instagram: CONFIG.instagramUrl, tiktok: CONFIG.tiktokUrl, email: CONFIG.contactEmail ? "mailto:" + CONFIG.contactEmail : "" };
+      document.querySelectorAll("[data-social]").forEach((link) => {
+        const url = socials[link.dataset.social];
+        if (url) {
+          setExternal(link, url);
+          link.removeAttribute("aria-disabled");
+        } else {
+          link.removeAttribute("href");
+          link.setAttribute("aria-disabled", "true");
+          link.setAttribute("role", "link");
+          link.title = link.getAttribute("aria-label") + ": próximamente";
+        }
+      });
+
+      if (CONFIG.trainerName) {
+        const nameEl = document.getElementById("trainer-name");
+        nameEl.textContent = CONFIG.trainerName;
+        nameEl.hidden = false;
+      }
+    })();
+
+    /* -------------------------------------------------------------------------
+       Fotos: carga desde CONFIG.images; si fallan, queda el degradado de fondo
+       ------------------------------------------------------------------------- */
+    document.querySelectorAll("img[data-img]").forEach((img) => {
+      const src = CONFIG.images[img.dataset.img];
+      if (!src) { img.remove(); return; }
+      img.addEventListener("load", () => img.classList.add("is-loaded"));
+      // Si no está en la ruta indicada (p. ej. img/hero.jpg), se prueba una vez en la carpeta de la web (hero.jpg)
+      img.addEventListener("error", () => {
+        const plain = src.split("/").pop();
+        if (!img.dataset.retried && plain !== src) { img.dataset.retried = "1"; img.src = plain; }
+        else img.remove();
+      });
+      img.src = src;
+    });
+
+    /* -------------------------------------------------------------------------
+       Menú móvil
+       ------------------------------------------------------------------------- */
+    const toggle = document.querySelector(".menu-toggle");
+    const nav = document.getElementById("menu-principal");
+
+    function setMenu(open) {
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+      nav.classList.toggle("is-open", open);
+    }
+    toggle.addEventListener("click", () => setMenu(toggle.getAttribute("aria-expanded") !== "true"));
+    nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenu(false)));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+        setMenu(false);
+        toggle.focus();
+      }
+    });
+    window.matchMedia("(min-width: 1000px)").addEventListener("change", (e) => { if (e.matches) setMenu(false); });
+
+    /* -------------------------------------------------------------------------
+       Resaltado de la sección activa en el menú
+       ------------------------------------------------------------------------- */
+    const navLinks = Array.from(nav.querySelectorAll('a[href^="#"]'));
+    function setActive(id) {
+      navLinks.forEach((link) => {
+        const active = link.getAttribute("href") === "#" + id;
+        link.classList.toggle("is-active", active);
+        if (active) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+    }
+    if ("IntersectionObserver" in window) {
+      const spy = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => { if (entry.isIntersecting) setActive(entry.target.id); });
+      }, { rootMargin: "-40% 0px -55% 0px" });
+      navLinks.forEach((link) => {
+        const section = document.querySelector(link.getAttribute("href"));
+        if (section) spy.observe(section);
+      });
+    }
+
+    /* -------------------------------------------------------------------------
+       Animaciones de entrada al hacer scroll
+       ------------------------------------------------------------------------- */
+    (function reveal() {
+      const targets = document.querySelectorAll(".reveal, .reveal-left, .steps-grid");
+      if (!("IntersectionObserver" in window)) {
+        targets.forEach((t) => t.classList.add("is-in"));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) { entry.target.classList.add("is-in"); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+      targets.forEach((t) => io.observe(t));
+    })();
+
+    /* -------------------------------------------------------------------------
+       Foco de luz que sigue al cursor (tarjetas con clase .spot)
+       ------------------------------------------------------------------------- */
+    document.querySelectorAll(".spot").forEach((card) => {
+      card.addEventListener("pointermove", (event) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty("--mx", (event.clientX - rect.left) + "px");
+        card.style.setProperty("--my", (event.clientY - rect.top) + "px");
+      });
+    });
+
+    /* -------------------------------------------------------------------------
+       Scroll: barra de progreso, cabecera, botón flotante y parallax suave
+       ------------------------------------------------------------------------- */
+    (function scrollEffects() {
+      const header = document.querySelector(".site-header");
+      const bar = document.getElementById("progress");
+      const floating = document.getElementById("fab");
+      const parallax = Array.from(document.querySelectorAll("[data-parallax]"));
+      let ticking = false;
+
+      function update() {
+        const y = window.scrollY;
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = "scaleX(" + (max > 0 ? Math.min(y / max, 1) : 0) + ")";
+        header.classList.toggle("is-scrolled", y > 20);
+        floating.classList.toggle("is-visible", y > 600);
+
+        if (!reduceMotion) {
+          parallax.forEach((box) => {
+            const factor = parseFloat(box.dataset.parallax) || 0;
+            if (!factor) return;
+            const rect = box.getBoundingClientRect();
+            if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+            const offset = (rect.top + rect.height / 2 - window.innerHeight / 2) * factor * -1;
+            box.style.setProperty("--py", offset.toFixed(1) + "px");
+          });
+        }
+        ticking = false;
+      }
+      window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+      window.addEventListener("resize", update);
+      update();
+    })();
+
+    /* -------------------------------------------------------------------------
+       Servicios: pestañas presencial / online (flechas del teclado incluidas)
+       ------------------------------------------------------------------------- */
+    (function tabs() {
+      const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+      function select(tab) {
+        tabs.forEach((t) => {
+          const on = t === tab;
+          t.setAttribute("aria-selected", String(on));
+          t.tabIndex = on ? 0 : -1;
+          document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+        });
+      }
+      tabs.forEach((tab, i) => {
+        tab.addEventListener("click", () => select(tab));
+        tab.addEventListener("keydown", (event) => {
+          if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+          const next = tabs[(i + (event.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length];
+          select(next); next.focus();
+        });
+      });
+    })();
+
+    /* -------------------------------------------------------------------------
+       Preguntas frecuentes (solo una abierta a la vez, con despliegue suave)
+       ------------------------------------------------------------------------- */
+    (function faq() {
+      const buttons = Array.from(document.querySelectorAll(".faq-btn"));
+      function setOpen(button, open) {
+        button.setAttribute("aria-expanded", String(open));
+        document.getElementById(button.getAttribute("aria-controls")).classList.toggle("is-open", open);
+        button.closest(".faq-item").classList.toggle("is-open", open);
+      }
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const wasOpen = button.getAttribute("aria-expanded") === "true";
+          buttons.forEach((other) => setOpen(other, false));
+          if (!wasOpen) setOpen(button, true);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
